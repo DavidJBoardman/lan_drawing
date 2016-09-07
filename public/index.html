@@ -1,6 +1,8 @@
 <html>
 <head>
   <meta charset="UTF-8">
+  <link href="https://fonts.googleapis.com/css?family=Baloo+Tamma" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="layout.css">
   <script language="javascript" type="text/javascript" src="libraries/p5.js"></script>
   <script language="javascript" src="libraries/p5.dom.js"></script>
   <script language="javascript" src="libraries/p5.sound.js"></script>
@@ -9,5 +11,23 @@
 </head>
 
 <body>
+  <div class="title">
+    <h1>Drawing Game</h1>
+  </div>
+
+  <div class="tools">
+     <button id="sizeUp" onclick="sizeUp()" type="button">Bigger</button>
+     <button id="sizeDown" onclick="sizeDown()" type="button">Smaller</button> 
+  </div>
+
+  <div id="sketch-holder">
+    <!-- Sketch goes here -->
+  </div>
+
 </body>
+<footer>
+  <div id="footer">
+    <h2>Created by David Boardman</h2>
+  </div>
+</footer>
 </html>
