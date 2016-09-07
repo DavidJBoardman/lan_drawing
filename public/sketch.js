@@ -19,6 +19,8 @@ function setup () {
   socket = io.connect('86.5.155.121:3000');
   socket.on('mouse', newDrawing);
 
+  document.getElementById("brushSize").innerHTML = (ellipseXSize);
+
 }
 
 function windowResized() {
@@ -29,9 +31,6 @@ function newDrawing(data) {
   noStroke();
   fill(255, 0, 100);
   ellipse(data.x, data.y, data.ex, data.ey);
-
-
-  triangle(1230, 1275, 1258, 1220, 1286, 1275).addEventListener("click", sizeupTri);
 }
 
 function mouseDragged() {
@@ -55,6 +54,7 @@ function sizeUp() {
   ellipseXSize++;
   ellipseYSize++;
   console.log("Size: " + ellipseXSize + " x and " + ellipseYSize + " y")
+  document.getElementById("brushSize").innerHTML = (ellipseXSize);
 }
 
 function sizeDown() {
@@ -67,7 +67,16 @@ function sizeDown() {
     ellipseXSize = 1;
   }
   console.log("Size: " + ellipseXSize + " x and " + ellipseYSize + " y")
+
+  document.getElementById("brushSize").innerHTML = (ellipseXSize);
 }
+
+function clearCanvas() {
+  clear();
+  background(51);
+}
+
+
 function draw() {
 
 
