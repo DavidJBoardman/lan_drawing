@@ -84,12 +84,15 @@ function clearCanvas() {
 function chatSend() {
   //$('form').submit(function(){
     socket.emit('chat message', $('#m').val());
-    $('#m').val('');
-    return false;
+    if ($('#m').val('')) {
+      return false;
+    }
+    else {
+      socket.on('chat message', function(msg){
+        $('#messages').append($('<li>').text(msg));
+      });
+    }
   //});
 
-  socket.on('chat message', function(msg){
-    $('#messages').append($('<li>').text(msg));
-  });
 
 }
