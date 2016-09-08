@@ -81,12 +81,12 @@ function clearCanvas() {
   background(51);
 }
 
-function chat() {
-  $('form').submit(function(){
+function chatSend() {
+  //$('form').submit(function(){
     socket.emit('chat message', $('#m').val());
     $('#m').val('');
     return false;
-  });
+  //});
 
   socket.on('chat message', function(msg){
     $('#messages').append($('<li>').text(msg));

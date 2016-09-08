@@ -4,15 +4,12 @@
   <meta charset="UTF-8">
   <link href="https://fonts.googleapis.com/css?family=Baloo+Tamma" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="layout.css">
-    <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+  <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
   <script language="javascript" type="text/javascript" src="libraries/p5.js"></script>
   <script language="javascript" src="libraries/p5.dom.js"></script>
   <script language="javascript" src="libraries/p5.sound.js"></script>
   <script language="javascript" type="text/javascript" src="sketch.js"></script>
   <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
-  <script type="text/javascript" src="chat.js">
-
-  </script>
 
 </head>
 
@@ -32,7 +29,7 @@
 
     <ul id="messages"></ul>
       <form action="">
-        <input id="m" autocomplete="off" /><button>Send</button>
+        <input id="m" onsubmit="chatSend()" autocomplete="off" /><button>Send</button>
       </form>
   </div>
 
