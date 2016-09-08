@@ -27,16 +27,8 @@ function setup () {
 
 }
 
-function draw() {
-  $('form').submit(function(){
-    socket.emit('chat message', $('#m').val());
-    $('#m').val('');
-    return false;
-  });
 
-  socket.on('chat message', function(msg){
-    $('#messages').append($('<li>').text(msg));
-  });
+function draw() {
 
 }
 
@@ -88,6 +80,15 @@ function sizeDown() {
   document.getElementById("brushSize").innerHTML = (ellipseXSize);
 }
 
+function sendMsg() {
+    socket.emit('chat message', $('#m').val());
+    $('#m').val('');
+    return false;
+
+  socket.on('chat message', function(msg){
+    $('#messages').append($('<li>').text(msg));
+  });
+}
 function clearCanvas() {
   clear();
   background(51);
