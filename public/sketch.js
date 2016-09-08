@@ -2,6 +2,8 @@ var socket;
 var ellipseXSize = 16;
 var ellipseYSize = 16;
 var cnv;
+socket = io.connect('86.5.155.121:3000');
+
 
 function centerCanvas() {
   var x = (windowWidth - width) / 2;
@@ -16,7 +18,7 @@ function setup () {
   centerCanvas();
   background(51);
 
-  socket = io.connect('86.5.155.121:3000');
+
   //socket = io.connect('localhost:3000');
   socket.on('mouse', newDrawing);
 
