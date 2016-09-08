@@ -10,7 +10,7 @@ function centerCanvas() {
 }
 
 
-function setup () {
+function setup() {
   cnv = createCanvas(1000, 800);
   cnv.parent('sketch-holder');
   centerCanvas();
@@ -24,17 +24,6 @@ function setup () {
 
 }
 
-function push() {
-  $('form').submit(function(){
-    socket.emit('chat message', $('#m').val());
-    $('#m').val('');
-    return false;
-  });
-
-  socket.on('chat message', function(msg){
-    $('#messages').append($('<li>').text(msg));
-  });
-}
 function draw() {
 
 }
@@ -90,4 +79,17 @@ function sizeDown() {
 function clearCanvas() {
   clear();
   background(51);
+}
+
+function chat() {
+  $('form').submit(function(){
+    socket.emit('chat message', $('#m').val());
+    $('#m').val('');
+    return false;
+  });
+
+  socket.on('chat message', function(msg){
+    $('#messages').append($('<li>').text(msg));
+  });
+
 }
