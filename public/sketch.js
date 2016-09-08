@@ -17,11 +17,25 @@ function setup () {
   background(51);
 
   socket = io.connect('86.5.155.121:3000');
+  //socket = io.connect('localhost:3000');
   socket.on('mouse', newDrawing);
+
+  $('form').submit(function(){
+    socket.emit('chat message', $('#m').val());
+    $('#m').val('');
+    return false;
+  });
+
+  socket.on('chat message', function(msg){
+    $('#messages').append($('<li>').text(msg));
+  });
 
   document.getElementById("brushSize").innerHTML = (ellipseXSize);
 
+
 }
+
+
 
 function windowResized() {
   centerCanvas();

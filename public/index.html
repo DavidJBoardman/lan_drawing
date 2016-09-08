@@ -1,5 +1,6 @@
 <html>
 <head>
+  <title>Drawing</title>
   <meta charset="UTF-8">
   <link href="https://fonts.googleapis.com/css?family=Baloo+Tamma" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="layout.css">
@@ -8,6 +9,7 @@
   <script language="javascript" src="libraries/p5.sound.js"></script>
   <script language="javascript" type="text/javascript" src="sketch.js"></script>
   <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+  <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
 </head>
 
 <body>
@@ -23,6 +25,11 @@
     <button id="sizeUp" onclick="sizeUp()" type="button">Bigger</button>
     <button id="sizeDown" onclick="sizeDown()" type="button">Smaller</button>
     <button id="clearCanvas" onclick="clearCanvas()" type="button">Clear</button>
+
+    <ul id="messages"></ul>
+      <form action="">
+        <input id="m" autocomplete="off" /><button>Send</button>
+      </form>
   </div>
 
   <div id="sketch-holder">

@@ -18,6 +18,16 @@ var socket = require('socket.io');
 var io = socket(server);
 
 io.sockets.on('connection', newConnection);
+io.sockets.on('disconnect', function(){
+  console.log('user disconnected');
+});
+
+
+io.on('connection', function(socket){
+  socket.on('chat message', function(msg){
+    console.log('message: ' + msg);
+  });
+});
 
 function newConnection(socket) {
   console.log('New connection' + socket.id);
@@ -29,5 +39,6 @@ function newConnection(socket) {
     socket.broadcast.emit('mouse', data);
     console.log(data);
   }
+
 
 }
