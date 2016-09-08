@@ -20,6 +20,14 @@ function setup () {
   //socket = io.connect('localhost:3000');
   socket.on('mouse', newDrawing);
 
+
+
+  document.getElementById("brushSize").innerHTML = (ellipseXSize);
+
+
+}
+
+function draw() {
   $('form').submit(function(){
     socket.emit('chat message', $('#m').val());
     $('#m').val('');
@@ -30,12 +38,7 @@ function setup () {
     $('#messages').append($('<li>').text(msg));
   });
 
-  document.getElementById("brushSize").innerHTML = (ellipseXSize);
-
-
 }
-
-
 
 function windowResized() {
   centerCanvas();
@@ -88,10 +91,4 @@ function sizeDown() {
 function clearCanvas() {
   clear();
   background(51);
-}
-
-
-function draw() {
-
-
 }
