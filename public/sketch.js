@@ -87,11 +87,9 @@ function chatSend() {
     if ($('#m').val('')) {
       return false;
     }
-    else {
-      socket.on('chat message', function(msg){
-        $('#messages').append($('<li>').text(msg));
-      });
-    }
+    socket.on('chat message', function(msg){
+      $('#messages').append($('<li>').text(msg));
+    });
   //});
 
 
