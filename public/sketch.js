@@ -22,9 +22,6 @@ function setup () {
 
   document.getElementById("brushSize").innerHTML = (ellipseXSize);
 
-}
-
-function sendMsg() {
   $('form').submit(function(){
     socket.emit('chat message', $('#m').val());
     $('#m').val('');
@@ -35,6 +32,7 @@ function sendMsg() {
     $('#messages').append($('<li>').text(msg));
   });
 }
+
 
 function draw() {
 
